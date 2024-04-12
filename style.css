@@ -1,13 +1,13 @@
 body {
-    background-color: #1f1f1f;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
 }
 
-#page-title {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
+.cst-nav-text {
+    max-width: 240px;
 }
 
-#page-title h1,h2 {
-    color: #d0d0d0;
+.clickable-text:hover {
+    cursor: pointer;
 }
