@@ -12,10 +12,9 @@ function modifyContent(name) {
     }).then((data) => 
         data.text()
     ).then((text) => {
-        console.log("begin" + text + "end")
-        elem.textContent = mdConv.makeHtml(text)
+        elem.innerHTML = mdConv.makeHtml(text)
     }).catch((e) => {
-        elem.textContent = "Error al cargar!\n" + e
+        elem.textContent = "Error al cargar!"
     })
 }
 
