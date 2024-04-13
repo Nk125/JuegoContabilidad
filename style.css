@@ -1,13 +1,18 @@
 body {
-    overflow-x: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: aliceblue;
+	overflow-x: hidden;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: aliceblue;
 }
 
 .cst-nav-text {
-    max-width: 240px;
+	max-width: 240px;
+}
+
+.btn-m-px {
+	max-height: 32px;
+	max-width: 32px;
 }
 
 .clickable-text:hover {
-    cursor: pointer;
+	cursor: pointer;
 }

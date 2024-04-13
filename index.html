@@ -1,64 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Juego - Contabilidad</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta name="description" content="Juego para Contabilidad">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Juego - Contabilidad</title>
 
-        <!-- Bootstrap -->
-        <!-- Tutorial: https://www.w3schools.com/bootstrap5/index.php -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<meta name="description" content="Juego para Contabilidad">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Stylesheet normal, este es el que se edita -->
-        <link rel="stylesheet" href="style.css">
+	<!-- Bootstrap -->
+	<!-- Tutorial: https://www.w3schools.com/bootstrap5/index.php -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-        <!-- Preconectar al CDN de jsdelivr -->
-        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+	<!-- Stylesheet normal, este es el que se edita -->
+	<link rel="stylesheet" href="style.css">
 
-        <!-- Ícono -->
-        <link rel="icon" href="assets/favicon.ico">
-    </head>
-    <body x-data="{ shownNavList: true }" class="bg-dark">
-        <div class="container-fluid text-center p-3 border-bottom row">
-		<div class="col-2 d-flex justify-ccontent-center">
-			<button class="border rounded mh-25 border-light bg-dark" @click="shownNavList = ! shownNavList; toggleColMainContent(shownNavList)">🟰</button>
+	<!-- Preconectar al CDN de jsdelivr -->
+	<link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+	<!-- Ícono -->
+	<link rel="icon" href="assets/favicon.ico">
+</head>
+
+<body x-data="{ shownNavList: true }" class="bg-dark">
+	<div class="container-fluid text-center p-3 border-bottom row">
+		<div class="col-2 d-flex justify-content-start">
+			<button class="border rounded btn-m-px border-light bg-dark"
+				title="Mostrar lista de navegación"
+				type="button"
+				@click="shownNavList = ! shownNavList; toggleColMainContent(shownNavList)">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+					class="bi bi-layout-text-sidebar-reverse d-flex justify-content-center"
+					viewBox="0 0 16 16">
+					<path
+						d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5m-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
+					<path
+						d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5z" />
+				</svg>
+			</button>
 		</div>
-	    <div class="col-8">
-            <h2>Juego de Contabilidad Web</h2>
-	    </div>
-        </div>
+		<div class="col-8">
+			<h2>Juego de Contabilidad Web</h2>
+		</div>
+	</div>
 
-        <div class="mh-100 h-100 p-4 container-fluid">
+	<div class="mh-100 h-100 p-4 container-fluid">
 		<div class="row h-100">
-		    <div class="border-right border-light mh-100 h-100 col-4" x-show="shownNavList">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="cst-nav-text"><a class="linkto" render="principal">Página principal</a></li>
-                        <li class="cst-nav-text"><a class="linkto" render="introduccion">1. Introducción</a></li>
-                        <li class="cst-nav-text"><p>Cuentas del Activo</p></li>
-                        <li class="cst-nav-text"><a class="linkto" render="caja">2. Caja</a></li>
-                    </ul>
+			<div class="border-right border-light mh-100 h-100 col-4" x-show="shownNavList">
+				<ul class="nav nav-pills flex-column">
+					<li class="cst-nav-text"><a class="linkto" render="principal">Página principal</a></li>
+					<li class="cst-nav-text"><a class="linkto" render="introduccion">1. Introducción</a></li>
+					<li class="cst-nav-text">
+						<p>Cuentas del Activo</p>
+					</li>
+					<li class="cst-nav-text"><a class="linkto" render="caja">2. Caja</a></li>
+				</ul>
+			</div>
+			<div id="mainContent" class="mh-100 h-100 col-8">
+			</div>
 		</div>
-                <div id="mainContent" class="mh-100 h-100 col-8">
-                </div>
-            </div>
-        </div>
+	</div>
 
-        <!-- Alpine.js -->
-        <!-- Tutorial: https://alpinejs.dev/start-here -->
+	<!-- Alpine.js -->
+	<!-- Tutorial: https://alpinejs.dev/start-here -->
 	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" async defer></script>
 
-        <!-- Markdown a HTML -->
-        <!-- Para cargar documentación simple -->
-        <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+	<!-- Markdown a HTML -->
+	<!-- Para cargar documentación simple -->
+	<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
 
-        <!-- Script de JS -->
-        <script src="js/script.js" async defer></script>
+	<!-- Script de JS -->
+	<script src="js/script.js" async defer></script>
 
-        <!-- Runtime de Bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+	<!-- Runtime de Bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
